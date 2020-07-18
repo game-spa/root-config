@@ -29,6 +29,28 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-areas: 
+        "header"
+        "main";
+    }
+
+    #single-spa-application\:navbar {
+      grid-area: header;
+    }
+
+    #single-spa-application\:home {
+      grid-area: main;
+    }
+
+    #single-spa-application\:favorites {
+      grid-area: main;
+    }
+  </style>
   
   <script type="systemjs-importmap">
     {
@@ -50,6 +72,7 @@
     {
       "imports": {
         "@game-spa/root-config": "//localhost:9000/game-spa-root-config.js",
+        "@game-spa/navbar": "//localhost:8084/js/app.js",
         "@game-spa/home": "//localhost:8081/js/app.js",
         "@game-spa/favorites": "//localhost:8083/game-spa-favorites.js",
         "@game-spa/services": "//localhost:8082/game-spa-services.js"
@@ -76,7 +99,7 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.3.1/dist/extras/named-exports.min.js"></script>
   <% } %>
 </head>
-<body>
+<body class="body">
   <main></main>
   <script>
     System.import('@game-spa/root-config');

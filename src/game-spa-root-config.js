@@ -1,17 +1,21 @@
 import { registerApplication, start } from 'single-spa';
 
 registerApplication({
-  name: '@game-spa/home',
+  name: 'navbar',
+  app: () => System.import('@game-spa/navbar'),
+  activeWhen: '/'
+});
+
+registerApplication({
+  name: 'home',
   app: () => System.import('@game-spa/home'),
   activeWhen: '/home'
 });
 
 registerApplication({
-  name: '@game-spa/favorites',
+  name: 'favorites',
   app: () => System.import('@game-spa/favorites'),
   activeWhen: '/favorites'
 });
 
-start({
-  urlRerouteOnly: true
-});
+start();
